@@ -61,18 +61,17 @@ train_df, test_df = train_test_split(df, test_size=0.2, stratify=df['label_class
 transform = transforms.Compose([
     transforms.Resize((64, 64)),
     transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-])
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 def load_imgs(df):
     imgs = []
     labels = []
     for i, row in df.iterrows():
-        img = Image.open(row['image_path']).convert('RGB')
-        img = transform(img)
+        img =Image.open(row['image_path']).convert('RGB')
+        img= transform(img)
         imgs.append(img)
         labels.append(row['label_class'])
-    imgs = torch.stack(imgs)
+    imgs= torch.stack(imgs)
     labels = torch.tensor(labels)
     return TensorDataset(imgs, labels)
 
@@ -125,7 +124,6 @@ for epoch in range(num_epochs):
         optimizer.step()  #обнов параметры
 ```
 
-
 ```python
 from sklearn.metrics import accuracy_score, f1_score
 
@@ -157,4 +155,5 @@ print("F1:", f1_score(true_labels, pred_labels))
     Test: Accuracy: 0.816
     F1: 0.8099173553719008
     
+
 
