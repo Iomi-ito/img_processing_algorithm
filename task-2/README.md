@@ -1,14 +1,9 @@
 ```python
 import kagglehub
 dataset_path = kagglehub.dataset_download('bhavikjikadara/dog-and-cat-classification-dataset')
-print('Data source import complete.')
 
 ```
-
-    Data source import complete.
     
-
-
 ```python
 import os
 directory = os.path.join(dataset_path, 'PetImages')
@@ -90,11 +85,6 @@ test_loader= DataLoader(test_dataset, batch_size=32)
 
 ```
 
-    c:\Users\Анна\AppData\Local\Programs\Python\Python313\Lib\site-packages\PIL\TiffImagePlugin.py:950: UserWarning: Truncated File Read
-      warnings.warn(str(msg))
-    
-
-
 ```python
 import torch.nn as nn
 import torch.optim as optim
@@ -167,3 +157,4 @@ print("F1:", f1_score(true_labels, pred_labels))
     Test: Accuracy: 0.816
     F1: 0.8099173553719008
     
+
